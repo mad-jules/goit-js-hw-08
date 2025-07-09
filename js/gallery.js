@@ -90,10 +90,10 @@ galleryList.innerHTML = markup;
 galleryList.addEventListener("click", (event) => {
   event.preventDefault();
 
-  if (event.target.nodeName !== "UL") {
+  if (event.target !== event.currentTarget) {
     console.log(event.target.dataset.source);
     const instance = basicLightbox.create(`
-      <img src=${event.target.dataset.source} alt=${event.target.alt}>
+      <img src='${event.target.dataset.source}' alt='${event.target.alt}'>
     `);
     instance.show();
   }
